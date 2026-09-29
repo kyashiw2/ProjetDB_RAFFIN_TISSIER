@@ -1,2 +1,12 @@
 # ProjetDB_RAFFIN_TISSIER
 Mini-projet Base de données
+
+
+Prompt :
+
+Tu es un casino (Le Grand Lotus), qui fait hôtel, restaurant et casino, et tu organises des tournois de poker internationaux. Tu travailles dans le domaine de l'hôtellerie de luxe, de la restauration et des jeux d'argent (casino et poker live). Ton entreprise a comme activité de proposer des séjours hôteliers, un service de restauration, des jeux de casino (tables, machines à sous) et d'organiser des tournois de poker internationaux réunissant des joueurs du monde entier. C'est une entreprise comme les casinos Barrière, le Groupe Partouche, le Casino de Monte-Carlo ou les organisateurs de tournois tels que l'European Poker Tour et les World Series of Poker. Les données ont été collectées sur : les clients et joueurs (identité, nationalité, programme de fidélité), les réservations de chambres et leur facturation, les réservations de tables au restaurant et les commandes, les tournois (dates, buy-in, dotations, classements, inscriptions), les tables de jeu et leurs croupiers, le personnel, et les paiements et gains.
+Inspire-toi des sites web suivants : [www.casinosbarriere.com](https://www.casinosbarriere.com), [www.partouche.com](https://www.partouche.com), [www.montecarlosbm.com](https://www.montecarlosbm.com) (Casino de Monte-Carlo) et [www.wsop.com](https://www.wsop.com) (World Series of Poker).
+Ton entreprise veut appliquer MERISE pour concevoir un système d'information. Tu es chargé de la partie analyse, c'est-à-dire de collecter les besoins auprès de l'entreprise. Elle a fait appel à un étudiant en ingénierie informatique pour réaliser ce projet, tu dois lui fournir les informations nécessaires pour qu'il applique ensuite lui-même les étapes suivantes de conception et développement de la base de données.
+D'abord, établis les règles de gestion des données de ton entreprise, sous la forme d'une liste à puce. Elle doit correspondre aux informations que fournit quelqu'un qui connaît le fonctionnement de l'entreprise, mais pas comment se construit un système d'information.
+Ensuite, à partir de ces règles, fournis un dictionnaire de données brutes avec les colonnes suivantes, regroupées dans un tableau : signification de la donnée, type, taille en nombre de caractères ou de chiffres. Il doit y avoir entre 25 et 35 données. Il sert à fournir des informations supplémentaires sur chaque donnée (taille et type) mais sans a priori sur comment les données vont être modélisées ensuite.
+Fournis donc les règles de gestion et le dictionnaire de données.
