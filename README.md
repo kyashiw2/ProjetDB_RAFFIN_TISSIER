@@ -95,4 +95,6 @@ Nous avons organisé le modèle pour éviter de répéter les mêmes information
 - Pour la 2FN, les attributs dépendent de la clé entière. Par exemple, le tarif convenu dépend à la fois du séjour et de la chambre.
 - Pour la 3FN, les informations restent dans l’entité qu’elles décrivent. Le nom du client reste dans CLIENT et les informations du tournoi restent dans TOURNOI.
 Le niveau de fidélité est calculé à partir des points plutôt que stocké comme une information indépendante. Les règles de calcul et les contraintes supplémentaires accompagnent le MCD, car les cardinalités ne suffisent pas à tout représenter.
+<img width="743" height="439" alt="Capture d&#39;écran 2026-10-16 101641" src="https://github.com/user-attachments/assets/132c18f8-a2af-40b5-a820-04ca204c2aef" />
+
 
