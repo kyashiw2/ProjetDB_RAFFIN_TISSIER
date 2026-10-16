@@ -20,7 +20,7 @@ Fournis donc les règles de gestion et le dictionnaire de données.
 
 <img width="454" height="610" alt="image" src="https://github.com/user-attachments/assets/9645a312-4478-48a5-b098-1e743960a9b5" />
 
-Dictionnaire 
+Dictionnaire des Données
 | N° | Signification de la donnée                                       | Type | Taille en nombre de caractères ou de chiffres |
 | -- | ---------------------------------------------------------------- | ---- | --------------------------------------------- |
 | 1  | Numéro du client                                                 | AN   | 8 caractères                                  |
@@ -59,5 +59,40 @@ Dictionnaire
 | 34 | Montant du paiement, en euros                                    | N    | 11 chiffres, dont 2 décimales                 |
 | 35 | Mode de règlement du paiement                                    | AN   | 15 caractères                                 |
 
+Comment nous avons réfléchi au MCD
+Nous avons réalisé notre MCD avec Looping à partir du dictionnaire des données et des règles de gestion. Il contient 15 entités et 18 associations.
+L’entité CLIENT est reliée aux différentes activités du Grand Lotus. Un même client peut réserver un séjour, manger au restaurant et participer à un tournoi. Ses informations personnelles sont enregistrées une seule fois.
 
+La partie hôtel:
+Un client peut réserver plusieurs séjours. Chaque séjour appartient à un seul client et comprend au moins une chambre.
+Nous avons placé TarifNuitConvenu dans l’association COMPRENDRE, car le prix dépend de la chambre et du séjour. Une même chambre peut donc être réservée à des tarifs différents.
+La date de départ doit être après la date d’arrivée. Deux séjours ne peuvent pas occuper la même chambre en même temps.
+
+La partie restaurant:
+Chaque réservation concerne un client et une table. Elle indique la date, l’heure et le nombre de convives.
+Une commande est prise en charge par un client et servie à une table. Elle contient au moins un plat. L’association CONTENIR précise la quantité et le prix appliqué pour chaque plat de la commande.
+Cela permet de garder le prix payé au moment de la commande, même si le prix du plat change ensuite.
+
+Les factures et les paiements:
+Chaque facture appartient à un client. Elle peut regrouper les prestations d’un séjour et ses commandes de restaurant, ou concerner une commande indépendante.
+Une facture peut être réglée en plusieurs paiements. Chaque paiement concerne soit une facture, soit une inscription à un tournoi, mais jamais les deux. Il doit obligatoirement être lié à l’une de ces destinations.
+Cette règle correspond à une contrainte d’exclusion et de totalité, appelée XT, entre les associations REGLER et ACQUITTER.
+
+Les tournois et les croupiers:
+Un tournoi utilise au moins une table de jeu. Un client peut participer à plusieurs tournois, mais il ne peut s’inscrire qu’une fois au même tournoi.
+L’entité INSCRIPTION contient le rang final et le gain du participant. Ces informations peuvent rester vides tant que les résultats ne sont pas connus.
+L’association AFFECTER indique sur quelle table travaille un croupier à une date donnée.
+
+Les deux éléments avancés
+Nous avons utilisé une association ternaire et une entité faible.
+L’association AFFECTER relie trois entités : CROUPIER, TABLE_JEU et JOUR_SERVICE. Elle permet, par exemple, d’indiquer qu’un croupier travaille sur une table précise un jour donné. Nous avons retenu la règle d’une seule table par croupier et par jour.
+L’entité INSCRIPTION est identifiée par rapport à TOURNOI. Le numéro d’inscription est unique dans un tournoi, mais il peut être réutilisé dans un autre tournoi. Pour identifier une inscription, il faut donc connaître son numéro et le tournoi concerné.
+Cette identification relative apparaît avec la notation 1,1(R) dans Looping. Au passage au MLD, la clé sera composée de id_tournoi et de id_inscription.
+La normalisation
+
+Nous avons organisé le modèle pour éviter de répéter les mêmes informations :
+- Pour la 1FN, chaque attribut contient une seule valeur. Les plats d’une commande sont représentés par une association, pas par une liste dans un attribut.
+- Pour la 2FN, les attributs dépendent de la clé entière. Par exemple, le tarif convenu dépend à la fois du séjour et de la chambre.
+- Pour la 3FN, les informations restent dans l’entité qu’elles décrivent. Le nom du client reste dans CLIENT et les informations du tournoi restent dans TOURNOI.
+Le niveau de fidélité est calculé à partir des points plutôt que stocké comme une information indépendante. Les règles de calcul et les contraintes supplémentaires accompagnent le MCD, car les cardinalités ne suffisent pas à tout représenter.
 
