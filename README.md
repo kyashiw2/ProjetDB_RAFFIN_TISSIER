@@ -76,7 +76,7 @@ Cela permet de garder le prix payé au moment de la commande, même si le prix d
 Les factures et les paiements:
 Chaque facture appartient à un client. Elle peut regrouper les prestations d’un séjour et ses commandes de restaurant, ou concerner une commande indépendante.
 Une facture peut être réglée en plusieurs paiements. Chaque paiement concerne soit une facture, soit une inscription à un tournoi, mais jamais les deux. Il doit obligatoirement être lié à l’une de ces destinations.
-Cette règle correspond à une contrainte d’exclusion et de totalité, appelée XT, entre les associations REGLER et ACQUITTER.
+Cette règle correspond à une contrainte d’exclusion et de totalité, entre les associations REGLER et ACQUITTER.
 
 Les tournois et les croupiers:
 Un tournoi utilise au moins une table de jeu. Un client peut participer à plusieurs tournois, mais il ne peut s’inscrire qu’une fois au même tournoi.
