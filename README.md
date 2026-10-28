@@ -98,8 +98,7 @@ Le niveau de fidélité est calculé à partir des points plutôt que stocké co
 
 <img width="743" height="439" alt="Capture d&#39;écran 2026-10-16 101641" src="https://github.com/user-attachments/assets/403cc937-3d9a-4156-8aa6-48eec7a97347" />
 
-"Modèle L
-ogique de Données" (MLD°
+"Modèle Logique de Données" (MLD°
 1. LIENT(id_client, NumClient, NomClient, PrenomClient, DateNaissance, Nationalite)
 2. ADHESION_FIDELITE(id_fidelite, PointsFidelite, Niveau_Fidélité, #id_client)
 3. SEJOUR(id_sejour, RefSejour, DateArrivee, DateDepart, #id_facture, #id_client)
