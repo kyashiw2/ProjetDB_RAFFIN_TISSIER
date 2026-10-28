@@ -98,3 +98,30 @@ Le niveau de fidélité est calculé à partir des points plutôt que stocké co
 
 <img width="743" height="439" alt="Capture d&#39;écran 2026-10-16 101641" src="https://github.com/user-attachments/assets/403cc937-3d9a-4156-8aa6-48eec7a97347" />
 
+"Modèle L
+ogique de Données" (MLD°
+1. LIENT(id_client, NumClient, NomClient, PrenomClient, DateNaissance, Nationalite)
+2. ADHESION_FIDELITE(id_fidelite, PointsFidelite, Niveau_Fidélité, #id_client)
+3. SEJOUR(id_sejour, RefSejour, DateArrivee, DateDepart, #id_facture, #id_client)
+4. CHAMBRE(id_chambre, NumChambre)
+5. COMPRENDRE(#id_sejour, #id_chambre, TarifNuitConvenu)
+6. RESERVATION_RESTAURANT(id_reservation, DateHeureReservation, NbConvives, #id_table_restaurant, #id_client)
+7. TABLE_RESTAURANT(id_table_restaurant, NumTableRestaurant)
+8. COMMANDE(id_commande, NumCommande, #id_facture, #id_table_restaurant, #id_client)
+9. PLAT(id_plat, NomPlat)
+10. CONTENIR(#id_commande, #id_plat, Quantite, PrixUnitaireApplique)
+11. FACTURE(id_facture, NumFacture, MontantTotal, #id_client)
+12. PAIEMENT(id_paiement, DateHeurePaiement, MontantPaiement, ModeReglement, #id_facture, #id_client)
+13. INSCRIPTION(#id_tournoi, id_inscription, RangFinal, GainAttribue, #id_paiement, #id_client)
+14. TOURNOI(id_tournoi, NomEdition, DateTournoi, BuyIn, DotationGarantie)
+15. TABLE_JEU(id_table_jeu, NumTableJeu, TypeJeu)
+16. CROUPIER(id_croupier, MatriculeCroupier, NomCroupier)
+17. JOUR_SERVICE(id_jour, DateService)
+18. AFFECTER(#id_table_jeu, #id_croupier, #id_jour)
+19. MOBILISER(#id_tournoi, #id_table_jeu)
+Contraintes d’unicité complémentaires :
+- ADHESION_FIDELITE.id_client : une seule adhésion par client.
+- SEJOUR.id_facture : une facture ne correspond qu’à un seul séjour.
+- INSCRIPTION.id_paiement : un paiement ne règle qu’une seule inscription.
+- INSCRIPTION(id_tournoi, id_client) : une seule inscription par client et par tournoi.
+- AFFECTER(id_croupier, id_jour) : une seule table par croupier et par jour.
