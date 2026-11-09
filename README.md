@@ -120,4 +120,4 @@ Le niveau de fidélité est calculé à partir des points plutôt que stocké co
 19. MOBILISER(#id_tournoi, #id_table_jeu)
 <img width="1330" height="860" alt="Capture d&#39;écran 2026-11-09 100355" src="https://github.com/user-attachments/assets/dd04464c-6d1b-4071-8d78-a0bf844bfb45" />
 
-Fichiers SQL 
+
