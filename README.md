@@ -207,3 +207,17 @@ Donne toutes les lignes, sans points de suspension. Vérifie les quantités, les
 les dates et les montants. Indique ensuite les vérifications réalisées et précise si le script a réellement été
 exécuté.
 
+Scénario d’utilisation
+Le responsable du Grand Lotus utilise la base de données pour suivre les activités de l’hôtel, du restaurant et des tournois de poker. Il souhaite mieux connaître ses clients, consulter les prestations utilisées et suivre les paiements.
+
+Pour cela, il recherche les informations suivantes :
+Domaine	Informations recherchées
+Clients	Les clients français triés par nom, les différentes nationalités et les clients dont le nom commence par M.
+Fidélité	Les adhérents de niveau Or ou Platine et la moyenne des points pour chaque niveau.
+Hôtel	Les séjours de chaque client, les chambres réservées et les tarifs convenus. Il souhaite aussi repérer les clients ayant effectué au moins deux séjours.
+Restaurant	Les plats commandés et leurs quantités, les plats jamais commandés et les clients qui fréquentent le restaurant sans séjourner à l’hôtel.
+Paiements et factures	Le total des paiements par mode de règlement et les factures sans aucun paiement. Il souhaite également comparer les montants des factures à celles du client numéro 1.
+Tournois	Les clients inscrits, les tournois ayant au moins huit participants, ceux dont le buy-in est compris entre 200 et 400 euros et ceux dont le buy-in est le plus élevé.
+Statistiques sur les clients	Le nombre de clients par nationalité et la liste de tous les clients avec leur niveau de fidélité lorsqu’ils en possèdent un.
+
+Nous avons préparé 20 requêtes SQL pour répondre à ces besoins. Elles permettent au responsable de retrouver rapidement les informations utiles, de repérer les clients réguliers et de suivre les activités de l’établissement.
