@@ -120,4 +120,90 @@ Le niveau de fidélité est calculé à partir des points plutôt que stocké co
 19. MOBILISER(#id_tournoi, #id_table_jeu)
 <img width="1330" height="860" alt="Capture d&#39;écran 2026-11-09 100355" src="https://github.com/user-attachments/assets/dd04464c-6d1b-4071-8d78-a0bf844bfb45" />
 
+Prompt 2 
+Donne les requêtes d’insertion permettant de remplir la base de données du Grand Lotus, un
+hôtel-restaurant-casino qui organise des tournois de poker, dont le modèle relationnel est le suivant :
+CLIENT(id_client, NumClient, NomClient, PrenomClient, DateNaissance, Nationalite)
+Clé primaire : id_client.
+ADHESION_FIDELITE(id_fidelite, PointsFidelite, Niveau_Fidelite, #id_client)
+Clé primaire : id_fidelite.
+CHAMBRE(id_chambre, NumChambre)
+Clé primaire : id_chambre.
+SEJOUR(id_sejour, RefSejour, DateArrivee, DateDepart, #id_facture, #id_client)
+Clé primaire : id_sejour.
+COMPRENDRE(#id_sejour, #id_chambre, TarifNuitConvenu)
+Clé primaire composée : (id_sejour, id_chambre).
+TABLE_RESTAURANT(id_table_restaurant, NumTableRestaurant)
+Clé primaire : id_table_restaurant.
+RESERVATION_RESTAURANT(id_reservation, DateHeureReservation, NbConvives, #id_table_restaurant,
+#id_client)
+Clé primaire : id_reservation.
+COMMANDE(id_commande, NumCommande, #id_facture, #id_table_restaurant, #id_client)
+Clé primaire : id_commande.
+PLAT(id_plat, NomPlat)
+Clé primaire : id_plat.
+CONTENIR(#id_commande, #id_plat, Quantite, PrixUnitaireApplique)
+Clé primaire composée : (id_commande, id_plat).
+FACTURE(id_facture, NumFacture, MontantTotal, #id_client)
+Clé primaire : id_facture.
+PAIEMENT(id_paiement, DateHeurePaiement, MontantPaiement, ModeReglement, #id_facture, #id_client)
+Clé primaire : id_paiement.
+TOURNOI(id_tournoi, NomEdition, DateTournoi, BuyIn, DotationGarantie)
+Clé primaire : id_tournoi.
+INSCRIPTION(#id_tournoi, id_inscription, RangFinal, GainAttribue, #id_paiement, #id_client)
+Clé primaire composée : (id_tournoi, id_inscription).
+TABLE_JEU(id_table_jeu, NumTableJeu, TypeJeu)
+Clé primaire : id_table_jeu.
+CROUPIER(id_croupier, MatriculeCroupier, NomCroupier)
+Clé primaire : id_croupier.
+JOUR_SERVICE(id_jour, DateService)
+Clé primaire : id_jour.
+AFFECTER(#id_table_jeu, #id_croupier, #id_jour)
+Clé primaire composée : (id_table_jeu, id_croupier, id_jour).
+MOBILISER(#id_tournoi, #id_table_jeu)
+Clé primaire composée : (id_tournoi, id_table_jeu).
+
+Clés et quantités
+Les clés primaires sont indiquées après chaque relation. Les clés étrangères sont identifiées par # et
+portent le même nom que les clés primaires auxquelles elles font référence. Le symbole # ne doit pas
+apparaître dans le script SQL.
+Il doit y avoir exactement :- 40 lignes dans CLIENT ;- 25 lignes dans ADHESION_FIDELITE ;- 20 lignes dans CHAMBRE ;- 50 lignes dans SEJOUR ;- 70 lignes dans COMPRENDRE ;- 12 lignes dans TABLE_RESTAURANT ;- 40 lignes dans RESERVATION_RESTAURANT ;- 60 lignes dans COMMANDE ;- 20 lignes dans PLAT ;- 150 lignes dans CONTENIR ;- 50 lignes dans FACTURE ;- 100 lignes dans PAIEMENT ;- 8 lignes dans TOURNOI ;- 60 lignes dans INSCRIPTION ;- 12 lignes dans TABLE_JEU ;- 10 lignes dans CROUPIER ;- 15 lignes dans JOUR_SERVICE ;- 60 lignes dans AFFECTER ;- 16 lignes dans MOBILISER ;
+Chaque séjour doit comprendre au moins une chambre. Chaque commande doit contenir au moins un plat.
+Chaque tournoi doit mobiliser au moins une table de poker.
+Les clés étrangères doivent faire référence à des clés primaires existantes. Commence par remplir les
+tables sans clés étrangères, puis les tables dont les clés étrangères font référence à des tables déjà
+remplies.
+Fichiers joints
+Les données doivent respecter les types, les tailles et les contraintes SQL présents dans les deux fichiers
+joints :- 1_creation.sql, éventuellement nommé 1_creation(1).sql ; - 2_contraintes.sql, éventuellement nommé
+2_contraintes(1).sql.
+Respecte toutes les contraintes PRIMARY KEY, FOREIGN KEY, NOT NULL, UNIQUE et CHECK. Ne
+modifie pas la structure et ne désactive aucune contrainte. Fournis explicitement les identifiants.
+Contraintes et cohérence des données
+Respecte notamment les règles suivantes :- Les points de fidélité sont positifs ou nuls.- Le niveau est Bronze de 0 à 999 points, Argent de 1000 à 4999, Or de 5000 à 14999 et Platine à partir de
+15000.- Le départ d’un séjour est après son arrivée.- Les tarifs par nuit, les quantités, les nombres de convives et les paiements sont strictement positifs.- Les autres montants et les gains sont positifs ou nuls.- Les modes de règlement sont Carte, Especes, Virement ou Cheque.- Un client possède au maximum une adhésion de fidélité.- Un croupier est affecté à une seule table au maximum par jour.- Un client ne s’inscrit qu’une fois à un même tournoi.- Les rangs renseignés sont positifs et distincts dans un tournoi.- Le rang et le gain peuvent être NULL avant les résultats.
+Pour assurer la cohérence du jeu de données, applique également les règles et hypothèses suivantes :- Les clients sont majeurs au moment de leurs activités.- Les séjours d’une même chambre ne se chevauchent pas. Un nouveau séjour peut commencer le jour du
+départ précédent.- Une réservation au restaurant dure deux heures. Les réservations d’une même table ne se chevauchent
+pas.- Une table de jeu ne participe pas à deux tournois le même jour.- Une facture correspond soit à un séjour et éventuellement à des commandes du même client, soit à une
+seule commande sans séjour.- Le montant d’une facture correspond aux prestations associées : nombre de nuits multiplié par le tarif de
+chaque chambre, plus les quantités des plats multipliées par leurs prix unitaires.
+3
+Paiements et résultats des tournois- Un paiement concerne exclusivement une facture ou une inscription. Pour un paiement de tournoi,
+id_facture dans PAIEMENT est NULL et l’inscription référence ce paiement avec id_paiement.- Le client qui paie est celui de la facture ou de l’inscription.- Le total payé pour une facture ne dépasse pas son montant.- Le paiement d’une inscription est égal au buy-in du tournoi.- Pour chaque tournoi terminé, le total des gains distribués atteint au moins la dotation garantie.
+Variété des données
+Assure-toi que les noms et prénoms des clients sont fictifs, d’origines variées et mixtes. Varie les
+nationalités, les niveaux de fidélité, les dates et les modes de règlement.
+Prévois des clients sans séjour, des plats jamais commandés, des factures partiellement payées et des
+inscriptions dont le classement et le gain sont encore inconnus. Utilise NULL uniquement dans les
+colonnes qui l’autorisent.
+Format du résultat
+Fournis l’ensemble sous la forme d’un script MySQL complet, à enregistrer dans 3_insertion.sql et à
+exécuter une seule fois sur les tables vides, après les deux fichiers joints.
+Commence par :
+USE Mini_projet2_Grand_lotus;
+Utilise des INSERT INTO avec les noms des colonnes et VALUES. Ajoute des commentaires courts en
+français pour chaque table. N’utilise ni boucle ni procédure. Ne supprime aucune donnée.
+Donne toutes les lignes, sans points de suspension. Vérifie les quantités, les références, les contraintes,
+les dates et les montants. Indique ensuite les vérifications réalisées et précise si le script a réellement été
+exécuté.
 
