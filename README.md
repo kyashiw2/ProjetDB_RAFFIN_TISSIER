@@ -1,3 +1,4 @@
+<img width="997" height="862" alt="Capture d&#39;écran 2026-11-09 172228" src="https://github.com/user-attachments/assets/c3ad030c-906e-476a-9b58-23385cc5dd36" />
 # ProjetDB_RAFFIN_TISSIER
 Mini-projet Base de données
 
