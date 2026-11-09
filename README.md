@@ -1,4 +1,5 @@
 
+
 # ProjetDB_RAFFIN_TISSIER
 Mini-projet Base de données
 
@@ -231,3 +232,7 @@ SELECT c.NomClient, s.RefSejour
 FROM CLIENT c
 JOIN SEJOUR s ON c.id_client = s.id_client
 WHERE c.Nationalite = 'Francaise';
+
+
+<img width="912" height="977" alt="Arbre 1" src="https://github.com/user-attachments/assets/37688688-7361-4d44-a655-cc869131a9b4" />
+<img width="630" height="587" alt="Arbre 2" src="https://github.com/user-attachments/assets/8936eec2-8482-44cd-9d15-5d5e8af04772" />
