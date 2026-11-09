@@ -235,4 +235,8 @@ WHERE c.Nationalite = 'Francaise';
 
 
 <img width="912" height="977" alt="Arbre 1" src="https://github.com/user-attachments/assets/37688688-7361-4d44-a655-cc869131a9b4" />
-<img width="630" height="587" alt="Arbre 2" src="https://github.com/user-attachments/assets/8936eec2-8482-44cd-9d15-5d5e8af04772" />
+<img width="1070" height="307" alt="Capture d&#39;écran 2026-11-09 172504" src="https://github.com/user-attachments/assets/ea9f1553-cbcb-406d-9959-9b3a8a7dad0c" />
+
+<img width="630" height="587" alt="Arbre 2" src="https://github.com/user-attachments/assets/8936eec2-8482-44cd-9d15-5d5e8af04772" /
+<img width="988" height="310" alt="Capture d&#39;écran 2026-11-09 172508" src="https://github.com/user-attachments/assets/fc8d03e6-3ca3-4d02-b365-6c5ad3147c06" />
+
