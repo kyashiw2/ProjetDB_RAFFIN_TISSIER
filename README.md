@@ -1,4 +1,4 @@
-<img width="997" height="862" alt="Capture d&#39;écran 2026-11-09 172228" src="https://github.com/user-attachments/assets/c3ad030c-906e-476a-9b58-23385cc5dd36" />
+
 # ProjetDB_RAFFIN_TISSIER
 Mini-projet Base de données
 
@@ -222,3 +222,4 @@ Tournois	Les clients inscrits, les tournois ayant au moins huit participants, ce
 Statistiques sur les clients	Le nombre de clients par nationalité et la liste de tous les clients avec leur niveau de fidélité lorsqu’ils en possèdent un.
 
 Nous avons préparé 20 requêtes SQL pour répondre à ces besoins. Elles permettent au responsable de retrouver rapidement les informations utiles, de repérer les clients réguliers et de suivre les activités de l’établissement.
+<img width="997" height="862" alt="Capture d&#39;écran 2026-11-09 172228" src="https://github.com/user-attachments/assets/c3ad030c-906e-476a-9b58-23385cc5dd36" />
