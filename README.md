@@ -98,7 +98,7 @@ Le niveau de fidélité est calculé à partir des points plutôt que stocké co
 
 <img width="743" height="439" alt="Capture d&#39;écran 2026-10-16 101641" src="https://github.com/user-attachments/assets/403cc937-3d9a-4156-8aa6-48eec7a97347" />
 
-"Modèle Logique de Données" (MLD°
+"Modèle Logique de Données" (MLD)
 1. LIENT(id_client, NumClient, NomClient, PrenomClient, DateNaissance, Nationalite)
 2. ADHESION_FIDELITE(id_fidelite, PointsFidelite, Niveau_Fidélité, #id_client)
 3. SEJOUR(id_sejour, RefSejour, DateArrivee, DateDepart, #id_facture, #id_client)
@@ -118,9 +118,4 @@ Le niveau de fidélité est calculé à partir des points plutôt que stocké co
 17. JOUR_SERVICE(id_jour, DateService)
 18. AFFECTER(#id_table_jeu, #id_croupier, #id_jour)
 19. MOBILISER(#id_tournoi, #id_table_jeu)
-Contraintes d’unicité complémentaires :
-- ADHESION_FIDELITE.id_client : une seule adhésion par client.
-- SEJOUR.id_facture : une facture ne correspond qu’à un seul séjour.
-- INSCRIPTION.id_paiement : un paiement ne règle qu’une seule inscription.
-- INSCRIPTION(id_tournoi, id_client) : une seule inscription par client et par tournoi.
-- AFFECTER(id_croupier, id_jour) : une seule table par croupier et par jour.
+
